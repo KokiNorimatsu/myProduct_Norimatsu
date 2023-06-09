@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<main>
+    <div class="content">
+        <h1>何日後の価格を予測しますか？</h1>
+        <form action="/calc" method="POST"">
+            <p>
+                <label><span>数字を入力してください</span>
+                    <input type="text" name="predict_day" placeholder="日数">
+                </label>
+            </p>
+            <div class="calc_btn">
+                <input type="submit" value='予測する'>
+            </div>
+        </form>
+    </div>
+
+    <div class="box">
+        {% if result %}
+<p class="predict_day"> {{predict_day}}日後の予測価格は </p>
+<h2 class="result"> {{result}}円(/kg)です。 </h2>
+<img src="data:image/png;base64,{{data}}"/>
+{% else %}
+<h2 class="result">取得したデータの期間が2020/04/01～2023/03/31なので、2023/6/10の予測を行いたい場合は、71（日後）を入力してください</h2>
+{% endif %}
+    </div>
+</main>
+{% endblock %}
