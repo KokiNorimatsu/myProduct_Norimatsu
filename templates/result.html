@@ -5,6 +5,15 @@
         <h1>何日後の価格を予測しますか？</h1>
         <form action="/calc" method="POST"">
             <p>
+                <label><span>予測する野菜を選択してください</span>
+                    <input type="checkbox" name="vegetable" value="japanese_radish">だいこん
+                    <input type="checkbox" name="vegetable" value="carrot">にんじん
+                    <input type="checkbox" name="vegetable" value="cabbage">キャベツ
+                    <input type="checkbox" name="vegetable" value="green_onion">ねぎ
+                    <input type="checkbox" name="vegetable" value="cucumber">きゅうり
+                </label>
+                </p>
+            <p>
                 <label><span>数字を入力してください</span>
                     <input type="text" name="predict_day" placeholder="日数">
                 </label>

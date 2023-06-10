@@ -17,7 +17,7 @@ from matplotlib.figure import Figure as fig
 from matplotlib.figure import Figure
 
 
-def carrot(predict_day):
+def predict_price(predict_day, vegetable):
     #データの読み込み
     def preprocess(vegetable):
         current_path = os.path.dirname(__file__)
@@ -62,7 +62,7 @@ def carrot(predict_day):
 
     # データの読み込み
     current_path = os.path.dirname(__file__)
-    original_data = preprocess(vegetable='carrot')
+    original_data = preprocess(vegetable)
 
     # 訓練データとテストデータの分割と正規化   
     border = math.floor(len(original_data) * train_rate)
@@ -195,7 +195,7 @@ def carrot(predict_day):
     plt.xlabel("日付")
     plt.ylabel("価格", fontsize=16)
     plt.xticks(np.arange(0, len(df_pred), 90), rotation=45)
-    plt.title("にんじんの価格", fontsize=16)
+    plt.title(vegetable + "の予測価格", fontsize=16)
     plt.legend(loc='upper left', fontsize=16)
 
     #画像をバッファに保存

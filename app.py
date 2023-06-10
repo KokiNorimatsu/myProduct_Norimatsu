@@ -4,7 +4,7 @@ from flask import (
      request, 
      render_template)
 
-from model import carrot
+from model import predict_price
 
 app = Flask(__name__)
 
@@ -18,7 +18,8 @@ def predict():
         return render_template('result.html')
     elif request.method == "POST":
         predict_day = request.form['predict_day']
-        price, data = carrot(predict_day)
+        vegetable = request.form['vegetable']
+        price, data = predict_price(predict_day, vegetable)
 
         return render_template('result.html', result=price, data = data, predict_day = predict_day)
 
